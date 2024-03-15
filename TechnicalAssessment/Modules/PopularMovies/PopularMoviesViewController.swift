@@ -11,7 +11,6 @@ import RxCocoa
 
 class PopularMoviesViewController: UIViewController {
    
-   
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     let viewModel = MovieViewModel()

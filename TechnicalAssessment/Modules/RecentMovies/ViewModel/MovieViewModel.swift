@@ -12,7 +12,7 @@ import RxRelay
 enum MovieTypes: String {
     case recent = "now_playing"
     case popular = "popular"
-    case topRated = "top_rated"
+    case upComing = "upcoming"
 }
 
 class MovieViewModel {
