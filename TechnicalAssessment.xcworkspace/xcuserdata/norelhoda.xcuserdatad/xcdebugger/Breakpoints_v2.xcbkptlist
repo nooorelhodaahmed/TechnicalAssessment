@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "4941FB11-36CA-4BD1-B78F-1D567DA94776"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4B85A28B-8176-4153-971E-2BFA3DC34BB1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TechnicalAssessment/Modules/MovieDetails/View/MovieDetailsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "02CA42F1-0652-4D4D-9AF6-B6FE0654B8A1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TechnicalAssessment/Modules/RecentMovies/ViewModel/MovieViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "fetchRecentMovies(endPiont:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "02CA42F1-0652-4D4D-9AF6-B6FE0654B8A1 - 98caa6f6c644466f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TechnicalAssessment.MovieViewModel.fetchRecentMovies(endPiont: Swift.String) -&gt; ()"
+                  moduleName = "TechnicalAssessment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/norelhoda/Desktop/TechnicalAssessment/TechnicalAssessment/Modules/RecentMovies/ViewModel/MovieViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35">
+               </Location>
+               <Location
+                  uuid = "02CA42F1-0652-4D4D-9AF6-B6FE0654B8A1 - 76875adf3280a67a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (TechnicalAssessment.RecentMoviesModel) -&gt; () in TechnicalAssessment.MovieViewModel.fetchRecentMovies(endPiont: Swift.String) -&gt; ()"
+                  moduleName = "TechnicalAssessment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/norelhoda/Desktop/TechnicalAssessment/TechnicalAssessment/Modules/RecentMovies/ViewModel/MovieViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35">
+               </Location>
+               <Location
+                  uuid = "02CA42F1-0652-4D4D-9AF6-B6FE0654B8A1 - dbaa0825410f011b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Error) -&gt; () in TechnicalAssessment.MovieViewModel.fetchRecentMovies(endPiont: Swift.String) -&gt; ()"
+                  moduleName = "TechnicalAssessment"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/norelhoda/Desktop/TechnicalAssessment/TechnicalAssessment/Modules/RecentMovies/ViewModel/MovieViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EBC5BA96-6BA1-420F-8F5F-6DE6357A2523"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TechnicalAssessment/Network/APIClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "fetchRecentMovies(endPiont:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
