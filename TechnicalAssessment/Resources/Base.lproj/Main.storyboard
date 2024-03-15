@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Popular Movies-->
+        <!--Popular Movies View Controller-->
         <scene sceneID="h3d-IO-R2t">
             <objects>
                 <viewController storyboardIdentifier="PopularMoviesViewController" id="MnN-eo-08R" customClass="PopularMoviesViewController" customModule="TechnicalAssessment" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,12 +17,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8GM-uX-gFO">
-                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" id="C7T-vE-r5e">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OU7-IH-NBB"/>
-                        <color key="backgroundColor" systemColor="systemPinkColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="8GM-uX-gFO" firstAttribute="top" secondItem="OU7-IH-NBB" secondAttribute="top" id="M5I-bK-V44"/>
                             <constraint firstItem="8GM-uX-gFO" firstAttribute="leading" secondItem="OU7-IH-NBB" secondAttribute="leading" id="YF7-eM-vGh"/>
@@ -30,11 +34,15 @@
                             <constraint firstItem="OU7-IH-NBB" firstAttribute="bottom" secondItem="8GM-uX-gFO" secondAttribute="bottom" id="yNc-ks-W8c"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Popular Movies" id="UfR-g0-OoH"/>
+                    <navigationItem key="navigationItem" id="WqV-Dn-daX"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="C7T-vE-r5e" id="6NQ-LM-rTJ"/>
+                        <outlet property="tableView" destination="8GM-uX-gFO" id="NGq-K2-dfj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jl6-IM-jHX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="718.32061068702285" y="416.90140845070425"/>
+            <point key="canvasLocation" x="1498" y="417"/>
         </scene>
         <!--Recent Movies View Controller-->
         <scene sceneID="RKj-c8-dxo">
@@ -98,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QdQ-Yy-28Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1385.4961832061067" y="416.90140845070425"/>
+            <point key="canvasLocation" x="2307.6335877862593" y="416.90140845070425"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="eZd-xM-ypj">
@@ -113,7 +121,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="Ze0-Sa-oxc" kind="relationship" relationship="viewControllers" id="h9T-Ax-JhW"/>
-                        <segue destination="MnN-eo-08R" kind="relationship" relationship="viewControllers" id="5ON-Q1-fDo"/>
+                        <segue destination="oiJ-HR-tdP" kind="relationship" relationship="viewControllers" id="5ON-Q1-fDo"/>
                         <segue destination="RJq-gz-iF6" kind="relationship" relationship="viewControllers" id="uRC-sq-1ld"/>
                     </connections>
                 </tabBarController>
@@ -155,6 +163,25 @@
             </objects>
             <point key="canvasLocation" x="-866.41221374045801" y="416.90140845070425"/>
         </scene>
+        <!--Popular Movies-->
+        <scene sceneID="HeD-ub-28F">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oiJ-HR-tdP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Popular Movies" id="UfR-g0-OoH"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cly-id-pdB">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="MnN-eo-08R" kind="relationship" relationship="rootViewController" id="ItN-1n-eMr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c0G-Rz-x34" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="718.32061068702285" y="416.90140845070425"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
@@ -162,9 +189,6 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -10,7 +10,7 @@ import RxSwift
 import RxRelay
 
 enum MovieTypes: String {
-    case recent = "ow_playing"
+    case recent = "now_playing"
     case popular = "popular"
     case topRated = "top_rated"
 }
