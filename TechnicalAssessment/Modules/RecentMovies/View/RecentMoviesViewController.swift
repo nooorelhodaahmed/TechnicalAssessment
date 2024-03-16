@@ -57,10 +57,7 @@ extension RecentMoviesViewController : UITableViewDelegate {
         
         //coordinator 
         tableView.rx.modelSelected(Results.self).observe(on: MainScheduler.instance).subscribe(onNext:{ movie in
-            let vc = MovieDetailsViewController()
-            vc.hidesBottomBarWhenPushed = true
-            vc.movieId = movie.id
-            self.navigationController?.pushViewController(vc, animated: true)
+            self.coordinator?.navigateToMovieDetails(movieId: movie.id ?? 0)
         }).disposed(by: disposeBag)
     }
     

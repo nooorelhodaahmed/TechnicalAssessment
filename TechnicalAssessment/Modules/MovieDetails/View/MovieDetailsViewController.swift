@@ -9,13 +9,14 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-
 class MovieDetailsViewController: UIViewController,Storyboarded {
 
     //MARK: - Proporties
     var movieId : Int?
     let viewModel = MovieViewModel()
     weak var coordinator : MainCoordinator?
+    weak var popularCoordinator : PopularCoordinator?
+    weak var upComingCoordinator : UpComingCoordinator?
     let disposeBag = DisposeBag()
     
     //MARK: - Outlets
@@ -40,14 +41,15 @@ extension MovieDetailsViewController {
     
     func setUpViewModel(){
         self.viewModel.fetchMovieDetails(id: movieId ?? 0)
-        self.viewModel.movieDetailsSubject.observe(on: MainScheduler.instance).subscribe { [weak self]  movie in
+        self.viewModel.movieDetailsSubject
+            .observe(on: MainScheduler.instance)
+            .subscribe { [weak self]  movie in
             let url = imageBaseUrl + (movie.poster_path ?? "")
             self?.posterImage.downloaded(from: url)
             self?.overViewLabel.text = movie.overview
             if let runtime = movie.runtime {
                 self?.runTimeLabel.text = ("\(runtime)")
             }
-           
             self?.genresLabel.text = self?.setUpGeners(genres: movie.genres ?? [])
             
         }.disposed(by: disposeBag)

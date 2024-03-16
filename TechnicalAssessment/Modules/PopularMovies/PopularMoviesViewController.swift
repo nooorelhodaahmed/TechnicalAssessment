@@ -15,7 +15,7 @@ class PopularMoviesViewController: UIViewController,Storyboarded {
     let viewModel = MovieViewModel()
     private let identifier = "MoviesListTableViewCell"
     var disposeBag = DisposeBag()
-    weak var coordinator : MainCoordinator?
+    weak var coordinator : PopularCoordinator?
     
     //MARK: - Outlets
     @IBOutlet weak var tableView:UITableView!
@@ -32,6 +32,7 @@ class PopularMoviesViewController: UIViewController,Storyboarded {
     func setUpView() {
         registerTableViewCell()
         tableView.delegate = self
+        self.tabBarItem.title = "fdklsjfl"
     }
     
     func registerTableViewCell() {
@@ -56,10 +57,7 @@ extension PopularMoviesViewController : UITableViewDelegate {
         }.disposed(by: disposeBag)
         
         tableView.rx.modelSelected(Results.self).observe(on: MainScheduler.instance).subscribe(onNext:{ movie in
-            let vc = MovieDetailsViewController()
-            vc.hidesBottomBarWhenPushed = true
-            vc.movieId = movie.id
-            self.navigationController?.pushViewController(vc, animated: true)
+            self.coordinator?.navigateToMovieDetails(movieId: movie.id ?? 0)
         }).disposed(by: disposeBag)
     }
     

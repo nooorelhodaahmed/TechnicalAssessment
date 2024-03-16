@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2AA4F00D-FB00-4C14-9B98-DB042EACB513"
+            uuid = "F1714C1D-E1D6-4770-84D8-0AD6306519C5"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TechnicalAssessment/Modules/UpComingMovies/UpComingMoviesViewController.swift"
+            filePath = "TechnicalAssessment/Modules/MovieDetails/View/MovieDetailsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "handleErrorMessage()"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "setUpViewModel()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

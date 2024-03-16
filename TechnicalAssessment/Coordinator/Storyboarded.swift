@@ -18,4 +18,10 @@ extension Storyboarded where Self: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         return storyboard.instantiateViewController(withIdentifier: id) as! Self
     }
+    
+    static func bundleInstantiate() -> Self {
+        let id = String(String(describing: self))
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        return storyboard.instantiateViewController(withIdentifier: id) as! Self
+    }
 }

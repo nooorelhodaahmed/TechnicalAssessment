@@ -1,13 +1,14 @@
 //
-//  MainCoordinator.swift
+//  UpComingCoordinator.swift
 //  TechnicalAssessment
 //
-//  Created by norelhoda on 15/03/2024.
+//  Created by norelhoda on 16/03/2024.
 //
 
+import Foundation
 import UIKit
 
-class MainCoordinator: Coordinator {
+class UpComingCoordinator: Coordinator {
    
     var childCoordinators = [Coordinator]()
     var navigationController : UINavigationController
@@ -18,7 +19,7 @@ class MainCoordinator: Coordinator {
     }
     
     func start () {
-        let vc = RecentMoviesViewController.instantiate()
+        let vc = UpComingMoviesViewController.instantiate()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
     }
@@ -26,11 +27,9 @@ class MainCoordinator: Coordinator {
     func navigateToMovieDetails(movieId:Int){
 
         let vc = MovieDetailsViewController(nibName: "MovieDetailsViewController", bundle: nil)
-        vc.coordinator = self
+        vc.upComingCoordinator = self
         vc.movieId = movieId
         vc.hidesBottomBarWhenPushed = true
         navigationController.pushViewController(vc, animated: true)
     }
 }
-
-
