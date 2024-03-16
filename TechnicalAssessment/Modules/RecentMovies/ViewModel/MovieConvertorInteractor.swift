@@ -14,7 +14,7 @@ class MovieInteractor: MovieInteractorProtocol {
         return APIClient.fetchRecentMovies(endPiont: endPiont)
     }
     
-    func fetchMovieDetails(id: Int) -> RxSwift.Observable<MovieDetailsModel> {
+    func fetchMovieDetails(id: Int) -> Observable<MovieDetailsModel> {
         return APIClient.fechMovieDetails(id: id)
     }
 }
@@ -22,4 +22,10 @@ class MovieInteractor: MovieInteractorProtocol {
 protocol MovieInteractorProtocol {
     func fetchMovies(endPiont:String) -> Observable<RecentMoviesModel>
     func fetchMovieDetails(id:Int) -> Observable<MovieDetailsModel>
+}
+
+extension MovieInteractorProtocol {
+    func fetchMovieDetails(id:Int) -> Observable<MovieDetailsModel> {
+        return  APIClient.fechMovieDetails(id: id)
+    }
 }

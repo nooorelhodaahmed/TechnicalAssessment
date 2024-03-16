@@ -35,6 +35,8 @@
 		AF8EB6D92BA4EA38009A60FF /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8EB6D82BA4EA38009A60FF /* Coordinator.swift */; };
 		AF8EB6DB2BA4EE98009A60FF /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8EB6DA2BA4EE98009A60FF /* Storyboarded.swift */; };
 		AF8EB6DD2BA4F053009A60FF /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8EB6DC2BA4F053009A60FF /* MainCoordinator.swift */; };
+		AF8EB6E72BA5CA47009A60FF /* MovieMockInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8EB6E62BA5CA47009A60FF /* MovieMockInteractor.swift */; };
+		AF8EB6E92BA5D0E9009A60FF /* MovieViewModelTset.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8EB6E82BA5D0E9009A60FF /* MovieViewModelTset.swift */; };
 		C72EC9D897CA282BF7C38CC2 /* Pods_TechnicalAssessment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A64F7FC3C50E32067D0532 /* Pods_TechnicalAssessment.framework */; };
 		CFF417C29A47026262B6B128 /* Pods_TechnicalAssessment_TechnicalAssessmentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56632EFD895219CF45B67AFA /* Pods_TechnicalAssessment_TechnicalAssessmentUITests.framework */; };
 /* End PBXBuildFile section */
@@ -95,6 +97,8 @@
 		AF8EB6D82BA4EA38009A60FF /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		AF8EB6DA2BA4EE98009A60FF /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		AF8EB6DC2BA4F053009A60FF /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		AF8EB6E62BA5CA47009A60FF /* MovieMockInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieMockInteractor.swift; sourceTree = "<group>"; };
+		AF8EB6E82BA5D0E9009A60FF /* MovieViewModelTset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModelTset.swift; sourceTree = "<group>"; };
 		B1A64F7FC3C50E32067D0532 /* Pods_TechnicalAssessment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TechnicalAssessment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F86F46F257C258E3A056EB26 /* Pods-TechnicalAssessmentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TechnicalAssessmentTests.release.xcconfig"; path = "Target Support Files/Pods-TechnicalAssessmentTests/Pods-TechnicalAssessmentTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -187,6 +191,8 @@
 			isa = PBXGroup;
 			children = (
 				AF86DCD32BA3347100A29DF5 /* TechnicalAssessmentTests.swift */,
+				AF8EB6E82BA5D0E9009A60FF /* MovieViewModelTset.swift */,
+				AF8EB6E62BA5CA47009A60FF /* MovieMockInteractor.swift */,
 			);
 			path = TechnicalAssessmentTests;
 			sourceTree = "<group>";
@@ -616,7 +622,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF8EB6E92BA5D0E9009A60FF /* MovieViewModelTset.swift in Sources */,
 				AF86DCD42BA3347100A29DF5 /* TechnicalAssessmentTests.swift in Sources */,
+				AF8EB6E72BA5CA47009A60FF /* MovieMockInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -852,6 +860,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MBNBT64W3Z;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MARKETING_VERSION = 1.0;
@@ -873,6 +882,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MBNBT64W3Z;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				MARKETING_VERSION = 1.0;
@@ -893,6 +903,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MBNBT64W3Z;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = banquemisr.TechnicalAssessmentUITests;
@@ -912,6 +923,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MBNBT64W3Z;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = banquemisr.TechnicalAssessmentUITests;
