@@ -9,20 +9,26 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class UpComingMoviesViewController: UIViewController {
-
+class UpComingMoviesViewController: UIViewController,Storyboarded {
+    
+    //MARK: - Outlets
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    //MARK: - Proporties
+    weak var coordinator : MainCoordinator?
     let viewModel = MovieViewModel()
     private let identifier = "MoviesListTableViewCell"
     var disposeBag = DisposeBag()
-   
+    
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
         setUpViewModel()
     }
     
+    //MARK: - SetupView
     func setUpView() {
         registerTableViewCell()
         tableView.delegate = self
@@ -36,9 +42,9 @@ class UpComingMoviesViewController: UIViewController {
 
 //MARK: - Bind View Model
 extension UpComingMoviesViewController : UITableViewDelegate {
-   
+    
     func setUpViewModel() {
-        viewModel.fetchRecentMovies(endPiont: MovieTypes.upComing.rawValue)
+        viewModel.fetchMovies(endPiont: MovieTypes.upComing.rawValue)
         bindTabelView()
         handleActivityIndicator()
         handleErrorMessage()
@@ -46,10 +52,7 @@ extension UpComingMoviesViewController : UITableViewDelegate {
     
     func bindTabelView() {
         viewModel.recentMovieListSubject.observe(on: MainScheduler.instance).bind(to:tableView.rx.items(cellIdentifier:identifier,cellType: MoviesListTableViewCell.self)) { (row,item,cell) in
-            cell.movieNameLabel.text = item.title
-            let url = baseUrl.dropLast() + (item.poster_path ?? "") + " " + apiKey
-            cell.movieImageView.downloaded(from: url )
-            cell.releaseDateLabel.text = item.release_date
+            cell.configureCell(model:item)
         }.disposed(by: disposeBag)
         
         tableView.rx.modelSelected(Results.self).observe(on: MainScheduler.instance).subscribe(onNext:{ movie in
@@ -63,7 +66,7 @@ extension UpComingMoviesViewController : UITableViewDelegate {
     func handleErrorMessage() {
         viewModel.errorMessageSubject.observe(on: MainScheduler.instance).subscribe(onNext: { [weak self] (error) in
             guard let self = self else { return }
-            self.show(messageAlert: "Error", message: error)
+            self.show(messageAlert: "Error", message: "somethig went wrong")
         }).disposed(by: disposeBag)
     }
     

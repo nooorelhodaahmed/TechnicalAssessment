@@ -9,26 +9,31 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+class RecentMoviesViewController: UIViewController, Storyboarded {
 
-class RecentMoviesViewController: UIViewController {
-
+    //MARK: - Outlets
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    //MARK: - Proporties
     let viewModel = MovieViewModel()
+    weak var coordinator : MainCoordinator?
     private let identifier = "MoviesListTableViewCell"
     var disposeBag = DisposeBag()
    
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
         setUpViewModel()
     }
     
+    //MARK: - SetUpView
     func setUpView() {
         registerTableViewCell()
         tableView.delegate = self
     }
-    
+
     func registerTableViewCell() {
         let nib = UINib.init(nibName: identifier, bundle: nibBundle)
         tableView.register(nib, forCellReuseIdentifier: identifier)
@@ -39,20 +44,18 @@ class RecentMoviesViewController: UIViewController {
 extension RecentMoviesViewController : UITableViewDelegate {
    
     func setUpViewModel() {
-        viewModel.fetchRecentMovies(endPiont: MovieTypes.recent.rawValue)
+        viewModel.fetchMovies(endPiont: MovieTypes.recent.rawValue)
         bindTabelView()
-        handleActivityIndicator()
         handleErrorMessage()
+        handleActivityIndicator()
     }
     
     func bindTabelView() {
         viewModel.recentMovieListSubject.observe(on: MainScheduler.instance).bind(to:tableView.rx.items(cellIdentifier:identifier,cellType: MoviesListTableViewCell.self)) { (row,item,cell) in
-            cell.movieNameLabel.text = item.title
-            let url = baseUrl.dropLast() + (item.poster_path ?? "") + " " + apiKey
-            cell.movieImageView.downloaded(from: url )
-            cell.releaseDateLabel.text = item.release_date
+            cell.configureCell(model:item)
         }.disposed(by: disposeBag)
         
+        //coordinator 
         tableView.rx.modelSelected(Results.self).observe(on: MainScheduler.instance).subscribe(onNext:{ movie in
             let vc = MovieDetailsViewController()
             vc.hidesBottomBarWhenPushed = true

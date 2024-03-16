@@ -19,6 +19,13 @@ class MoviesListTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+    }
+    
+    public func configureCell(model :Results){
+        movieNameLabel.text = model.title
+        let url = imageBaseUrl + (model.poster_path ?? "")
+        movieImageView.downloaded(from: url)
+        releaseDateLabel.text = model.release_date
+        self.selectionStyle =  .none
     }
 }

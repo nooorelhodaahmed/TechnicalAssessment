@@ -20,7 +20,9 @@ class APIClient {
                     return
                 }
                 do {
-                    let movie = try JSONDecoder().decode(RecentMoviesModel.self, from: data)
+                    
+                     let movie = try JSONDecoder().decode(RecentMoviesModel.self, from: data)
+
                     observable.onNext(movie)
                 } catch {
                     do {
@@ -31,11 +33,43 @@ class APIClient {
                         //unexpected error
                         observable.onError(error)
                     }
-                    
                 }
                 observable.onCompleted()
             }
             
+            task.resume()
+            return Disposables.create {
+                task.cancel()
+            }
+        }
+    }
+    
+    static func fechMovieDetails(id:Int) -> Observable<MovieDetailsModel> {
+        return Observable.create { observable -> Disposable in
+            let urlString = "\(baseUrl)\(id)\(apiKey)"
+    
+            let task = URLSession.shared.dataTask(with: URL(string:urlString)!){ data, response, error in
+                // data is empty
+                guard let data = data else {
+                    observable.onError(NSError(domain: "", code: -1, userInfo: nil))
+                    observable.onCompleted()
+                    return
+                }
+                do {
+                    let movieDetail = try JSONDecoder().decode(MovieDetailsModel.self, from: data)
+                    observable.onNext(movieDetail)
+                } catch {
+                    do {
+                        //error i can decode
+                        let errorMessage = try JSONDecoder().decode(ErrorModel.self, from: data)
+                        observable.onError(errorMessage.error)
+                    } catch {
+                        //unexpected error
+                        observable.onError(error)
+                    }
+                }
+                observable.onCompleted()
+            }
             task.resume()
             return Disposables.create {
                 task.cancel()

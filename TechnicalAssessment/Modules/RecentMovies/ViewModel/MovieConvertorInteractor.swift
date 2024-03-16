@@ -14,18 +14,12 @@ class MovieInteractor: MovieInteractorProtocol {
         return APIClient.fetchRecentMovies(endPiont: endPiont)
     }
     
-//    func fetchCharchterDetails(id:String) -> Observable<CharchterDetailsModel> {
-//        return APIClient.fechCharchterDetails(id: id)
-//    }
+    func fetchMovieDetails(id: Int) -> RxSwift.Observable<MovieDetailsModel> {
+        return APIClient.fechMovieDetails(id: id)
+    }
 }
 
 protocol MovieInteractorProtocol {
     func fetchMovies(endPiont:String) -> Observable<RecentMoviesModel>
-   // func fetchCharchterDetails(id:String) -> Observable<CharchterDetailsModel>
+    func fetchMovieDetails(id:Int) -> Observable<MovieDetailsModel>
 }
-
-//extension MovieInteractorProtocol {
-//    func fetchCharchterDetails(id:String) -> Observable<CharchterDetailsModel> {
-//        return  APIClient.fechCharchterDetails(id: id)
-//    }
-//}

@@ -7,48 +7,48 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4B85A28B-8176-4153-971E-2BFA3DC34BB1"
+            uuid = "2AA4F00D-FB00-4C14-9B98-DB042EACB513"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TechnicalAssessment/Modules/MovieDetails/View/MovieDetailsViewController.swift"
+            filePath = "TechnicalAssessment/Modules/UpComingMovies/UpComingMoviesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "handleErrorMessage()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EBC5BA96-6BA1-420F-8F5F-6DE6357A2523"
+            uuid = "9B1034AF-99B5-49C1-B649-C266C7373897"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TechnicalAssessment/Network/APIClient.swift"
+            filePath = "TechnicalAssessment/Coordinator/MainCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "fetchRecentMovies(endPiont:)"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "navigateToMovieDetails(movieId:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "98E5D292-9955-48F5-B76F-9801DE253A3F"
+            uuid = "33DD557E-F964-4BC3-B1EE-CA705A6C02F9"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TechnicalAssessment/Modules/PopularMovies/PopularMoviesViewController.swift"
+            filePath = "TechnicalAssessment/Coordinator/MainCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "start()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

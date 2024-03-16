@@ -9,20 +9,26 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class PopularMoviesViewController: UIViewController {
-   
-    @IBOutlet weak var tableView:UITableView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+class PopularMoviesViewController: UIViewController,Storyboarded {
+    
+    //MARK: - Proporties
     let viewModel = MovieViewModel()
     private let identifier = "MoviesListTableViewCell"
     var disposeBag = DisposeBag()
+    weak var coordinator : MainCoordinator?
+    
+    //MARK: - Outlets
+    @IBOutlet weak var tableView:UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
    
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
         setUpViewModel()
     }
     
+    //MARK: - setUpView
     func setUpView() {
         registerTableViewCell()
         tableView.delegate = self
@@ -36,9 +42,9 @@ class PopularMoviesViewController: UIViewController {
 
 //MARK: - Bind View Model
 extension PopularMoviesViewController : UITableViewDelegate {
-   
+    
     func setUpViewModel() {
-        viewModel.fetchRecentMovies(endPiont: MovieTypes.popular.rawValue)
+        viewModel.fetchMovies(endPiont: MovieTypes.popular.rawValue)
         bindTabelView()
         handleActivityIndicator()
         handleErrorMessage()
@@ -46,10 +52,7 @@ extension PopularMoviesViewController : UITableViewDelegate {
     
     func bindTabelView() {
         viewModel.recentMovieListSubject.observe(on: MainScheduler.instance).bind(to:tableView.rx.items(cellIdentifier:identifier,cellType: MoviesListTableViewCell.self)) { (row,item,cell) in
-            cell.movieNameLabel.text = item.title
-            let url = baseUrl.dropLast() + (item.poster_path ?? "") + " " + apiKey
-            cell.movieImageView.downloaded(from: url )
-            cell.releaseDateLabel.text = item.release_date
+            cell.configureCell(model:item)
         }.disposed(by: disposeBag)
         
         tableView.rx.modelSelected(Results.self).observe(on: MainScheduler.instance).subscribe(onNext:{ movie in
@@ -74,5 +77,4 @@ extension PopularMoviesViewController : UITableViewDelegate {
             isLoading ? self.activityIndicator.startAnimating() : self.activityIndicator.stopAnimating()
         }).disposed(by: disposeBag)
     }
-
 }
