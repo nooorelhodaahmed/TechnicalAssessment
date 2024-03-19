@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class PopularCoordinator: Coordinator {
-   
+    
     var childCoordinators = [Coordinator]()
     var navigationController : UINavigationController
     var rootViewCintrolelr = UITabBarController()
@@ -24,8 +24,7 @@ class PopularCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func navigateToMovieDetails(movieId:Int){
-
+    func navigateToMovieDetails(movieId:Int) {
         let vc = MovieDetailsViewController(nibName: "MovieDetailsViewController", bundle: nil)
         vc.popularCoordinator = self
         vc.movieId = movieId

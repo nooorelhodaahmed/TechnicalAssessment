@@ -24,8 +24,7 @@ class UpComingCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func navigateToMovieDetails(movieId:Int){
-
+    func navigateToMovieDetails(movieId:Int) {
         let vc = MovieDetailsViewController(nibName: "MovieDetailsViewController", bundle: nil)
         vc.upComingCoordinator = self
         vc.movieId = movieId

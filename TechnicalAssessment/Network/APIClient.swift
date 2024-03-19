@@ -10,70 +10,65 @@ import RxSwift
 
 class APIClient {
     
-    static func fetchRecentMovies(endPiont:String) -> Observable<RecentMoviesModel> {
-        return Observable.create { observable -> Disposable in
+    static func fetchRecentMovies(endPiont:String) -> PublishSubject<RecentMoviesDTO> {
+          let responseSubject = PublishSubject<RecentMoviesDTO>()
             let task = URLSession.shared.dataTask(with: URL(string: baseUrl + endPiont + apiKey)!) { data, response, error in
                 // data is empty
                 guard let data = data else {
-                    observable.onError(NSError(domain: "", code: -1, userInfo: nil))
-                    observable.onCompleted()
+                    responseSubject.onError(NSError(domain: "", code: -1, userInfo: nil))
+                    responseSubject.onCompleted()
                     return
                 }
                 do {
                     
-                     let movie = try JSONDecoder().decode(RecentMoviesModel.self, from: data)
+                     let movie = try JSONDecoder().decode(RecentMoviesDTO.self, from: data)
 
-                    observable.onNext(movie)
+                    responseSubject.onNext(movie)
                 } catch {
                     do {
                         //error i can decode
                         let errorMessage = try JSONDecoder().decode(ErrorModel.self, from: data)
-                        observable.onError(errorMessage.error)
+                        responseSubject.onError(errorMessage.error)
                     } catch {
                         //unexpected error
-                        observable.onError(error)
+                        responseSubject.onError(error)
                     }
                 }
-                observable.onCompleted()
+                responseSubject.onCompleted()
             }
-            
             task.resume()
-            return Disposables.create {
-                task.cancel()
-            }
+            return responseSubject
         }
-    }
+
     
-    static func fechMovieDetails(id:Int) -> Observable<MovieDetailsModel> {
-        return Observable.create { observable -> Disposable in
+    static func fechMovieDetails(id:Int) -> PublishSubject<MovieDetailsDTO> {
+        let responseSubject = PublishSubject<MovieDetailsDTO>()
             let urlString = "\(baseUrl)\(id)\(apiKey)"
     
             let task = URLSession.shared.dataTask(with: URL(string:urlString)!){ data, response, error in
                 // data is empty
                 guard let data = data else {
-                    observable.onError(NSError(domain: "", code: -1, userInfo: nil))
-                    observable.onCompleted()
+                    responseSubject.onError(NSError(domain: "", code: -1, userInfo: nil))
+                    responseSubject.onCompleted()
                     return
                 }
                 do {
-                    let movieDetail = try JSONDecoder().decode(MovieDetailsModel.self, from: data)
-                    observable.onNext(movieDetail)
+                    let movieDetail = try JSONDecoder().decode(MovieDetailsDTO.self, from: data)
+                    responseSubject.onNext(movieDetail)
                 } catch {
                     do {
                         //error i can decode
                         let errorMessage = try JSONDecoder().decode(ErrorModel.self, from: data)
-                        observable.onError(errorMessage.error)
+                        responseSubject.onError(errorMessage.error)
                     } catch {
                         //unexpected error
-                        observable.onError(error)
+                        responseSubject.onError(error)
                     }
                 }
-                observable.onCompleted()
+                responseSubject.onCompleted()
             }
             task.resume()
-            return Disposables.create {
-                task.cancel()
-            }
+            return responseSubject
         }
     }
-}
+
